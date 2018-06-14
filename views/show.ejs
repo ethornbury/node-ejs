@@ -1,0 +1,39 @@
+<% include ../partials/header %>
+
+  <!-- Grid -->
+  <div class="w3-row w3-padding w3-border">
+
+         <% indi.forEach(function(product) { %>
+         <div class="w3-col l8 s12">
+    
+      <!-- Blog entry -->
+      <div class="w3-container w3-white w3-margin w3-padding-large">
+        <div class="w3-center">
+          <h3><%= product.name %></h3>
+          <h5><%= product.activity %></h5>
+        </div>
+
+        <div class="w3-justify">
+         <img src="../<%= product.image %>" alt="<%= product.name %>" style="width:100%" class="w3-padding-16">
+          <p><strong>€<%= product.price %></strong> </p>
+          <a href="/show/<%= product.name %>" class="w3-button w3-white w3-border" >Show</a>
+         <a href="/edit/<%= product.name %>" class="w3-button w3-white w3-border" >Edit</a>
+         <a href="/show/<%= product.name %>" class="w3-button w3-white w3-border" >Delete</a>
+          <p class="w3-clear"></p>
+
+        </div>
+      </div>
+      <hr>
+      
+    </div>
+    <% }); %>
+   
+    </div>
+
+
+
+
+<% include ../partials/footer %>
+
+
+

@@ -1,0 +1,54 @@
+<% include ../partials/header %>
+Edit Page
+       <% indOne.forEach(function(product) { %>
+         <div class="w3-col l8 s12">
+    
+      <!-- Blog entry -->
+      <div class="w3-container w3-white w3-margin w3-padding-large">
+        <div class="w3-center">
+          <h3><%= product.name %></h3>
+          <h5><%= product.activity %></h5>
+        </div>
+<form accept-charset="UTF-8" action="/edit/<%= product.name %>" method="post">
+        <div class="w3-justify">
+          <label for="newname""">Name</label>
+          <p><input class="w3-input w3-border" type="text" name="newname" value="<%= product.name %>"></p>
+          <label for="newimage""">Image</label>
+          <p><input class="w3-input w3-border" type="text" name="newimage" value="<%= product.image %>"></p>
+          <label for="newprice">Price</label>
+          <p><input class="w3-input w3-border" type="text" name="newprice" value="<%= product.price %>"></p>
+          <label for="newactivity">Activity</label>
+          <p><input class="w3-input w3-border" type="text" name="newactivity" value="<%= product.activity %>"></p>
+         <img src="../<%= product.image %>" alt="<%= product.name %>" style="width:100%" class="w3-padding-16">
+         <button class="w3-button w3-white w3-border">
+           Post it
+          </button >
+          <p class="w3-clear"></p>
+
+        </div>
+        </form>
+      </div>
+      <hr>
+      
+    </div>
+    <% }); %>
+   
+
+<!-- Subscribe Modal -->
+<div id="subscribe" class="w3-modal w3-animate-opacity">
+  <div class="w3-modal-content" style="padding:32px">
+    <div class="w3-container w3-white">
+      <i onclick="document.getElementById('subscribe').style.display='none'" class="fa fa-remove w3-transparent w3-button w3-xlarge w3-right"></i>
+      <h2 class="w3-wide">Edit Item</h2>
+      <p>Join my mailing list to receive updates on the latest blog posts and other things.</p>
+      <p><input class="w3-input w3-border" type="text" placeholder="Enter e-mail"></p>
+      <button type="button" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" onclick="document.getElementById('subscribe').style.display='none'">Subscribe</button>
+    </div>
+  </div>
+</div>
+
+
+<% include ../partials/footer %>
+
+
+
