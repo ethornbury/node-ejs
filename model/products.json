@@ -3,7 +3,7 @@
         "name": "Polar M400",
         "activity": "Swimming",
         "price": "300",
-        "image": "cycling.jpg"
+        "image": "swimming.jpg"
     },
     {
         "name": "Garmin Edge1",
@@ -13,18 +13,18 @@
         "image": "cycling.jpg"
     },
     {
-        "name": "Liams Productf",
+        "name": "Liams Products",
         "id": 3,
-        "activity": "Swimming",
+        "activity": "Running",
         "price": "5",
-        "image": "cycling.jpg"
+        "image": "running.jpg"
     },
     {
         "name": "Garmin Edge2",
         "id": 4,
         "activity": "Swimming",
         "price": "5",
-        "image": "cycling.jpg"
+        "image": "garminedge.png"
     },
     {
         "name": "Liams Productf2",
@@ -41,7 +41,7 @@
         "image": "cycling.jpg"
     },
     {
-        "name": "Teddy",
+        "name": "Dude",
         "activity": "Cycling",
         "price": "20",
         "image": "cycling.jpg"
