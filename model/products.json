@@ -27,7 +27,7 @@
         "image": "garminedge.png"
     },
     {
-        "name": "Liams Productf2",
+        "name": "Liams Product 1",
         "id": 5,
         "activity": "Swimming",
         "price": "5",
@@ -45,5 +45,11 @@
         "activity": "Cycling",
         "price": "20",
         "image": "cycling.jpg"
+    },
+    {
+        "name": "blob",
+        "id": null,
+        "price": "15.00",
+        "image": "swimming.jpg"
     }
 ]

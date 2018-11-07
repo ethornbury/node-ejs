@@ -27,43 +27,32 @@ app.get('/', function(req, res) {
 //  This function calls the products page when somebody calls the products page
  app.get('/products' , function(req, res){
   res.render("products", 
-              {products:products} // Inside the {} option we call the products variable from line 10 above 
-             ); 
+      {products:products} // Inside the {} option we call the products variable from line 10 above 
+  ); 
    console.log("Products Page is rendered");
-  
-  
  })
 
 
  // This function calls the show individual products page
 app.get('/show/:name' , function(req, res){
-	
-	
 	// create a function to filter the products data
  	function findProd(which) {
-     return which.name === req.params.name;
+    return which.name === req.params.name;
  }
+ console.log(products.filter(findProd)); // log the split filter based on the check age function 
+ indi = products.filter(findProd); // filter the products and declare the filtered data as a sepreate variable
 	
- 	console.log(products.filter(findProd)); // log the split filter based on the check age function 
-  indi = products.filter(findProd); // filter the products and declare the filtered data as a sepreate variable
-	
-   res.render("show",
-             {indi:indi} // Inside the {} option we call the products variable from line 10 above
- 						); 
-	
-	
-   console.log("Individual page now loaded");
-  
-  
- })
+  res.render("show",
+       {indi:indi} // Inside the {} option we call the products variable from line 10 above
+  ); 
+  console.log("Individual page now loaded");
+})
 
- // Function to call the add product page
-
- app.get('/add', function(req, res){
- 			 res.render("add");
- 	     console.log("Ray wants this add page rendered");
-			 
-			 });
+// Function to call the add product page
+app.get('/add', function(req, res){
+ 	res.render("add");
+ 	console.log("Ray wants this add page rendered");
+});
 
 
 app.post('/add', function(req, res){
@@ -71,23 +60,19 @@ app.post('/add', function(req, res){
 	console.log(count);
 	
 	// This will look for the current largest id
-	
 	function getMax(products , id) {
 		var max
 		for (var i=0; i<products.length; i++) {
 			if(!max || parseInt(products[i][id]) > parseInt(max[id]))
 				max = products[i];
-			
 		}
 		return max;
 	}
-	
 	var maxPpg = getMax(products, "id");
 	newId = maxPpg.id + 1;
 	console.log(newId);
 	
 	// create a new product based on what we have in our form on the add page 
-	
 	var product = {
 		name: req.body.name, 
 		id: newId, // this is the variable created above
@@ -99,34 +84,31 @@ app.post('/add', function(req, res){
 	var json  = JSON.stringify(products); // Convert from object to string
 	
 	fs.readFile('./model/products.json', 'utf8', function readFileCallback(err, data){
-							if (err){
+	  if (err){
 		console.log("Something Went Wrong");
-	 }else {
+	  }else {
 		products.push(product); // add the information from the above variable
 		json = JSON.stringify(products, null , 4); // converted back to JSON
 		fs.writeFile('./model/products.json', json, 'utf8'); // Write the file back
 		
-	}});
+	  }});
 	res.redirect("/products")
 });
 
 // // code to render the edit product pageXOffset
-
 app.get('/edit/:name', function(req, res){
-	
 	console.log("Edit page Shown");
 		
 	function chooseProd(indOne){
-		return indOne.name === req.params.name;	 		}
+	 return indOne.name === req.params.name;	 		}
 	
  	var indOne = products.filter(chooseProd);
 	
 	res.render("edit",
- 						{indOne:indOne}
-						);
-	
+ 			{indOne:indOne}
+    	);
  	console.log(indOne);
- 	});
+ });
 
 
 app.post('/edit/:name', function(req, res){
@@ -187,26 +169,16 @@ app.post('/edit/:name', function(req, res){
 
 // console.log("Liam the position is " + index2 + "    " + keytoFind)
      
-  
 // products.splice(index2 ,1); // deletes one item from position represented by index 2 from above
-       
        
 // // VERY VERY VERY VERY IMPORTANT  rooms.cars.splice(keytoFind,1, {name: "hello", id: 34, position: 16}); // this line updates the data VERY VERY VERY VERY IMPORTANT
 
 //    json = JSON.stringify(products, null, 4); //convert it back to json
 //     fs.writeFile('./model/products.json', json, 'utf8'); // write it back 
 //   console.log("Product Deleted");
-    
-
-  
 // }});
-
-
-
 // res.redirect("/products");
 // });
-
-
 
 
 // // Delete products Function 
@@ -232,14 +204,11 @@ app.post('/edit/:name', function(req, res){
   
 //   res.redirect("/products")
 // })
-
-
-
 // // end delete function
 
 
 //const MongoClient = require('mongodb').MongoClient;
-const assert = require('assert');
+//const assert = require('assert');
 //// Connection URL
 //const url = 'mongodb://localhost:27017';
 //// Database Name
