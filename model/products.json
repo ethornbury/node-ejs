@@ -51,5 +51,11 @@
         "id": null,
         "price": "15.00",
         "image": "swimming.jpg"
+    },
+    {
+        "name": "Another new product",
+        "id": null,
+        "price": "1.00",
+        "image": "swimming.jpg"
     }
 ]

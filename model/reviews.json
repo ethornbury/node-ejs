@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Jo",
+        "review": "This is ok",
+        "rating": "3",
+        "email": "jo@email.com"
+    },
+    {
+        "name": "Ahmid",
+        "review": "Cool",
+        "rating": "5",
+        "email": "ahmid@email.com"
+    },
+    {
+        "name": "Pierre",
+        "review": "Coldn't live without it now!",
+        "rating": "5",
+        "email": "pierre@email.com"
+    },
+    {
+        "name": "Ali",
+        "review": "Needs work",
+        "rating": "2",
+        "email": "ali@email.com"
+    }
+]

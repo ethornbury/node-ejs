@@ -1,7 +1,5 @@
 var express = require("express");
 var app = express();
-
-var mongo = require('mongodb');
 var http = require('http');
 var bodyParser = require("body-parser");
 var fs = require('fs');
@@ -16,7 +14,7 @@ app.set("view engine", "ejs"); // This line sets the default view wngine
 app.use(bodyParser.urlencoded({extended:true}));
 
 var products = require("./model/products.json"); // allow the app to access the products.json file
-
+var reviews = require("./model/reviews.json");
 // This function calls the index viwe when somebody goes to the site route.
 app.get('/', function(req, res) {
   res.render("index");
@@ -26,7 +24,7 @@ app.get('/', function(req, res) {
 
 //  This function calls the products page when somebody calls the products page
  app.get('/products' , function(req, res){
-  res.render("products", 
+  res.render("products",   
       {products:products} // Inside the {} option we call the products variable from line 10 above 
   ); 
    console.log("Products Page is rendered");
@@ -137,11 +135,8 @@ app.post('/edit/:name', function(req, res){
 // 		if (err){
 // 			console.log("something Went Wrong");
 // 		} else {
-			
-			
-			
-// 		}
 		
+// 		}
 // 	})
 	res.redirect("/products");
 });
@@ -150,10 +145,7 @@ app.post('/edit/:name', function(req, res){
 
 // // new delete
 // app.get('/delete/:name', function(req, res) {
-  
 //   var json = JSON.stringify(products); // this is to Convert it from an object to string with stringify for use below
-  
-  
 //  fs.readFile('./model/products.json', 'utf8', function readFileCallback(err, data){
 //     if (err){
 //         console.log(err);
@@ -205,22 +197,6 @@ app.post('/edit/:name', function(req, res){
 //   res.redirect("/products")
 // })
 // // end delete function
-
-
-//const MongoClient = require('mongodb').MongoClient;
-//const assert = require('assert');
-//// Connection URL
-//const url = 'mongodb://localhost:27017';
-//// Database Name
-//const dbName = 'myproject';
- 
-//// Use connect method to connect to the server
-//MongoClient.connect(url, function(err, client) {
-//  assert.equal(null, err);
-//  console.log("Connected successfully to server");
-//  const db = client.db(dbName);
-//  client.close();
-//});
 
 
 // This function gets the application up and running on the development server.
